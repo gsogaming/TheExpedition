@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7783716337473902149}
   - component: {fileID: 6779940103336527517}
+  - component: {fileID: 8402564942887078303}
   m_Layer: 0
   m_Name: Shotgun_A
   m_TagString: Untagged
@@ -217,9 +218,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6511652127895430230}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.61, y: 2.67, z: -1.8259128}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 5403391811218668230}
   - {fileID: 1378107148989269881}
@@ -256,9 +257,36 @@ MonoBehaviour:
   maximumToFire: 20
   maximumSpreadDegree: 10
   available: 1
-  gunAnimator: {fileID: 0}
+  gunAnimator: {fileID: 8402564942887078303}
   shootTriggerName: Shoot
   idleAnimationName: Idle
+  useAmmo: 1
+  ammunitionID: 2
+  mustReload: 0
+  magazineSize: 1
+  roundsLoaded: 0
+  reloadTime: 1
+  weaponImage: {fileID: 0}
+  ammoImage: {fileID: 0}
+--- !u!95 &8402564942887078303
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511652127895430230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24fa795f00b82c04884ed3bf6dac3169, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6992219233989583206
 GameObject:
   m_ObjectHideFlags: 0

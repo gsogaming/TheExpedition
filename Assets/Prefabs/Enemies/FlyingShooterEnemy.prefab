@@ -93,9 +93,12 @@ MonoBehaviour:
   idleAnimationName: Idle
   useAmmo: 0
   ammunitionID: 0
+  mustReload: 0
   magazineSize: 1
   roundsLoaded: 0
   reloadTime: 1
+  weaponImage: {fileID: 0}
+  ammoImage: {fileID: 0}
 --- !u!1 &4699839180939646023
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +244,12 @@ MonoBehaviour:
   deathEffect: {fileID: 1515603650488286217, guid: b1d61b018291e5043b0be5ee26c12b18, type: 3}
   hitEffect: {fileID: 1986892457192645033, guid: b4b5f92d032abe64b84d7639d84610e8, type: 3}
   ragdollHandler: {fileID: 2725768548962742277}
+  eventsOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  eventsOnRespawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2725768548962742277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +384,10 @@ PrefabInstance:
     - target: {fileID: 2202784464318634145, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257029845561030015, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2469365969873903919, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_Layer
@@ -741,6 +754,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -753,6 +770,10 @@ PrefabInstance:
       value: 0.236
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -762,14 +783,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8612437295614994480, guid: ee608e9a5f34fb849a8fc95ac870104c, type: 3}
