@@ -20,6 +20,10 @@ public class Gun : MonoBehaviour
     [Tooltip("The enemy whos target will be used")]
     public Enemy enemy;
 
+    [Header("Damage Settings")]
+    [Tooltip("How much damage to deal when the projectile hits a target.")]
+    public int damageAmount = 1;
+
     [Header("Prefab Settings")]
     [Tooltip("The projectile game object to instantiate when firing this gun")]
     public GameObject projectileGameObject;
@@ -31,11 +35,19 @@ public class Gun : MonoBehaviour
     [Header("Fire settings")]
     [Tooltip("The transform whos location this fires from")]
     public Transform fireLocationTransform;
+    [Tooltip("The transform where the gunMuzzle Appears")]
+    public Transform muzzleEffectLocation;
     [Tooltip("How long to wait before being able to fire again, if no animator is set")]
     public float fireDelay = 0.02f;
     [Tooltip("The fire type of the weapon")]
     public FireType fireType = FireType.semiAutomatic;
-    
+
+    [Header("Raycast Settings")]
+    [Tooltip("The maximum distance the raycast can travel to hit a target.")]
+    public float maximumFireDistance = 100f;
+    [Tooltip("Layers that the raycast can interact with.")]
+    public LayerMask hitLayers;
+
     // enum for setting the fire type
     public enum FireType { semiAutomatic, automatic };
 
@@ -47,6 +59,9 @@ public class Gun : MonoBehaviour
     [Tooltip("The maximum degree (eular angle) of spread shots can be fired in")]
     [Range(0, 45)]
     public float maximumSpreadDegree = 0;
+    [Tooltip("Particle effects to have when the shot is hit.")]
+    public GameObject bulletVfxOnHit;
+    
 
     [Header("Equipping settings")]
     [Tooltip("Whether or not this gun is available for use")]
@@ -186,25 +201,65 @@ public class Gun : MonoBehaviour
 
         if (canFire && HasAmmo())
         {
-            if (projectileGameObject != null)
+
+            #region Old Codes
+            //
+            //
+            //Old Projectile Instantiation 
+            //
+            
+
+            #endregion
+
+            if (this.gameObject.tag == "Player")
             {
-                for (int i = 0; i < maximumToFire; i++)
+                RaycastHit hit;
+                Vector3 fireDirection = fireLocationTransform.forward;
+
+                if (Physics.Raycast(fireLocationTransform.position, fireDirection, out hit, maximumFireDistance, hitLayers))
                 {
-                    float fireDegreeX = Random.Range(-maximumSpreadDegree, maximumSpreadDegree);
-                    float fireDegreeY = Random.Range(-maximumSpreadDegree, maximumSpreadDegree);
-                    Vector3 fireRotationInEular = fireLocationTransform.rotation.eulerAngles + new Vector3(fireDegreeX, fireDegreeY, 0);
-                    GameObject projectile = Instantiate(projectileGameObject, fireLocationTransform.position, 
-                        Quaternion.Euler(fireRotationInEular), null);
-                    if (childProjectileToFireLocation)
+
+                    if (hit.collider.gameObject != null)
                     {
-                        projectile.transform.SetParent(fireLocationTransform);
+                        Health healthComponent = hit.collider.gameObject.GetComponent<Health>();
+                        if (healthComponent != null)
+                        {
+                            // Apply damage to the health component
+                            healthComponent.TakeDamage(damageAmount);
+                            if (bulletVfxOnHit != null)
+                            {
+                                Instantiate(bulletVfxOnHit, hit.point, Quaternion.LookRotation(hit.normal));
+                            }
+                            
+                        }
+                    }
+                    // Handle hit detection here
+
+
+                }
+            }
+            else
+            {
+                if (projectileGameObject != null) 
+                {
+                    for (int i = 0; i < maximumToFire; i++)
+                    {
+                        float fireDegreeX = Random.Range(-maximumSpreadDegree, maximumSpreadDegree);
+                        float fireDegreeY = Random.Range(-maximumSpreadDegree, maximumSpreadDegree);
+                        Vector3 fireRotationInEular = fireLocationTransform.rotation.eulerAngles + new Vector3(fireDegreeX, fireDegreeY, 0);
+                        GameObject projectile = Instantiate(projectileGameObject, fireLocationTransform.position, 
+                            Quaternion.Euler(fireRotationInEular), null);
+                        if (childProjectileToFireLocation)
+                        {
+                            projectile.transform.SetParent(fireLocationTransform);
+                        }
                     }
                 }
             }
 
             if (fireEffect != null)
             {
-                Instantiate(fireEffect, fireLocationTransform.position, fireLocationTransform.rotation, fireLocationTransform);
+                Instantiate(fireEffect, muzzleEffectLocation.position, muzzleEffectLocation.rotation, muzzleEffectLocation);
             }
 
             ableToFireAgainTime = Time.time + fireDelay;

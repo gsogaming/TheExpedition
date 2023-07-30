@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Required References")]
     [Tooltip("The player shooter script that fires projectiles")]
-    public Shooter playerShooter;
+    public PlayerShooter playerShooter;
     public Health playerHealth;
     public List<GameObject> disableWhileDead;
 

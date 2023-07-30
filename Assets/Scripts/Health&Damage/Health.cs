@@ -142,7 +142,7 @@ public class Health : MonoBehaviour
         }
         if (gameObject.GetComponent<PlayerController>() != null && gameObject.GetComponent<PlayerController>().playerShooter != null)
         {
-            Shooter playerShooter = gameObject.GetComponent<PlayerController>().playerShooter;
+            PlayerShooter playerShooter = gameObject.GetComponent<PlayerController>().playerShooter;
             foreach(Gun gun in playerShooter.guns)
             {
                 Vector3 rotation = gun.transform.localRotation.eulerAngles;
