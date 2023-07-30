@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -3115796188432635454}
   - component: {fileID: 3984427603643302406}
   - component: {fileID: 5486199537864129953}
+  - component: {fileID: 6557933254175972939}
   m_Layer: 9
   m_Name: FlyingSelfDestructingEnemy
   m_TagString: Untagged
@@ -216,6 +217,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   destroyChildrenOnDeath: 1
+--- !u!65 &6557933254175972939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292625075940306303}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8793378, y: 2.0324302, z: 2.3078465}
+  m_Center: {x: 0.15495992, y: 0.5162151, z: 0.03091836}
 --- !u!1001 &5858348798465911932
 PrefabInstance:
   m_ObjectHideFlags: 0

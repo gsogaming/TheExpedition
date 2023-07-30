@@ -10,7 +10,9 @@ public class WeaponDisplay : UIelement
 {
     [Header("References")]
     [Tooltip("The text that displays the remaining ammo")]
-    public Text ammoText = null;
+    public Text totalAmmoText = null;
+    [Tooltip("The text that displays the remaining ammo")]
+    public Text currentAmmoText = null;
     [Tooltip("The UI Image to display the weapon silouette to")]
     public RawImage gunDisplayImage;
     [Tooltip("The UI Image to display the ammo silouette to")]
@@ -28,10 +30,14 @@ public class WeaponDisplay : UIelement
     public void DisplayGunInformation()
     {
         PlayerShooter playerShooter = GameManager.instance.player.GetComponentInChildren<PlayerController>().playerShooter;
+        Gun currentGun = playerShooter.guns[playerShooter.equippedGunIndex];
 
-        if (ammoText != null && playerShooter.guns[playerShooter.equippedGunIndex].useAmmo)
+
+        if (totalAmmoText != null && currentAmmoText != null && playerShooter.guns[playerShooter.equippedGunIndex].useAmmo) 
         {
-            ammoText.text = AmmoTracker._instance[playerShooter.guns[playerShooter.equippedGunIndex].ammunitionID].ToString();
+            
+            currentAmmoText.text = currentGun.roundsLoaded.ToString();
+            totalAmmoText.text = (AmmoTracker._instance[playerShooter.guns[playerShooter.equippedGunIndex].ammunitionID] - currentGun.roundsLoaded).ToString();
             if (ammoPackDisplayImage != null && playerShooter.guns[playerShooter.equippedGunIndex].ammoImage != null)
             {
                 ammoPackDisplayImage.color = new Color(255, 255, 255, 255);
@@ -40,7 +46,7 @@ public class WeaponDisplay : UIelement
         }
         else
         {
-            ammoText.text = "";
+            totalAmmoText.text = "";
             ammoPackDisplayImage.color = new Color(0,0,0,0);
         }
         if (playerShooter.guns[playerShooter.equippedGunIndex].weaponImage != null && gunDisplayImage != null)

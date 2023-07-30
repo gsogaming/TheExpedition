@@ -122,6 +122,7 @@ public class PlayerShooter : MonoBehaviour
         }
 
         EquipGun(guns.IndexOf(availableGuns[equippedAvailableGunIndex]));
+        
     }
 
     /// <summary>
@@ -200,6 +201,9 @@ public class PlayerShooter : MonoBehaviour
             if (equippedGunIndex != i)
             {
                 guns[i].gameObject.SetActive(false);
+                guns[i].isReloading = false;
+                guns[i].gunAnimator.StopPlayback();
+                
             }
         }
         GameManager.UpdateUIElements();

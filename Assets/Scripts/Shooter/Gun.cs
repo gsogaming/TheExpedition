@@ -41,6 +41,8 @@ public class Gun : MonoBehaviour
     public float fireDelay = 0.02f;
     [Tooltip("The fire type of the weapon")]
     public FireType fireType = FireType.semiAutomatic;
+    [Tooltip("If the gun is in the process of reloading or not")]
+    public bool isReloading = false;
 
     [Header("Raycast Settings")]
     [Tooltip("The maximum distance the raycast can travel to hit a target.")]
@@ -201,15 +203,7 @@ public class Gun : MonoBehaviour
 
         if (canFire && HasAmmo())
         {
-
-            #region Old Codes
-            //
-            //
-            //Old Projectile Instantiation 
-            //
-            
-
-            #endregion
+                     
 
             if (this.gameObject.tag == "Player")
             {
@@ -273,8 +267,8 @@ public class Gun : MonoBehaviour
                 roundsLoaded = Mathf.Clamp(roundsLoaded - 1, 0, magazineSize);
             }
         }
-        else if (useAmmo && mustReload && roundsLoaded == 0)
-        {
+        else if (useAmmo && mustReload && roundsLoaded == 0 && !isReloading)
+        {            
             StartCoroutine(Reload());
         }
         GameManager.UpdateUIElements();
@@ -315,6 +309,7 @@ public class Gun : MonoBehaviour
     /// <returns>Coroutine</returns>
     private IEnumerator Reload()
     {
+        isReloading = true;
         ableToFireAgainTime = Time.time + reloadTime;
         if (AmmoTracker.HasAmmo(this))
         {
@@ -324,8 +319,12 @@ public class Gun : MonoBehaviour
                 t += Time.deltaTime;
                 yield return null;
             }
+            yield return reloadTime;            
             AmmoTracker.Reload(this);
         }
+        GameManager.UpdateUIElements();
+
+        isReloading = false;
     }
 
     /// <summary>

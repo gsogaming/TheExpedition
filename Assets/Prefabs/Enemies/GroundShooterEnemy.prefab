@@ -49,14 +49,21 @@ MonoBehaviour:
   maxDistanceToAim: 1000
   alwaysShootAtTarget: 1
   enemy: {fileID: 0}
+  damageAmount: 1
   projectileGameObject: {fileID: 35727632701236798, guid: 843692648eedf304b8bf50030f10d815, type: 3}
   childProjectileToFireLocation: 0
   fireEffect: {fileID: 0}
   fireLocationTransform: {fileID: 1198717888}
+  muzzleEffectLocation: {fileID: 0}
   fireDelay: 0.02
   fireType: 0
+  maximumFireDistance: 100
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 0
   maximumToFire: 1
   maximumSpreadDegree: 0
+  bulletVfxOnHit: {fileID: 0}
   available: 1
   gunAnimator: {fileID: 0}
   shootTriggerName: Shoot
@@ -118,6 +125,7 @@ GameObject:
   - component: {fileID: -5730357645085634424}
   - component: {fileID: 7087640983471534824}
   - component: {fileID: 3769725498016207606}
+  - component: {fileID: -6949727268779059042}
   m_Layer: 9
   m_Name: GroundShooterEnemy
   m_TagString: Untagged
@@ -360,6 +368,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   destroyChildrenOnDeath: 1
+--- !u!65 &-6949727268779059042
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642792238051749167}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.7706795, z: 3.6873722}
+  m_Center: {x: 0, y: 0.38534003, z: -0.57043576}
 --- !u!1001 &7337606194552539313
 PrefabInstance:
   m_ObjectHideFlags: 0

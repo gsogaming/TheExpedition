@@ -2847,7 +2847,7 @@ GameObject:
   - component: {fileID: 1924743314}
   - component: {fileID: 1924743313}
   - component: {fileID: 1924743316}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3458,6 +3458,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4432629127231473534, guid: b2692d6b51c4ded4e9f1ea31509ce356, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5725734936568819574, guid: b2692d6b51c4ded4e9f1ea31509ce356, type: 3}
       propertyPath: m_Name
       value: LevelManagementAssets
@@ -3549,6 +3553,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 851653754049150838, guid: c3e51ba6d9441cd4e8d4325c686e7d96, type: 3}
+      propertyPath: magazineSize
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8819631490831255312, guid: c3e51ba6d9441cd4e8d4325c686e7d96, type: 3}
       propertyPath: m_Name
       value: Player

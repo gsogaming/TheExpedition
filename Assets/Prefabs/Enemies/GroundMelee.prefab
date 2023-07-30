@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 5344201165240082450}
   - component: {fileID: 3872924443984927461}
   - component: {fileID: 1420941988157335598}
+  - component: {fileID: 193584535103125001}
   m_Layer: 9
   m_Name: GroundMelee
   m_TagString: Untagged
@@ -358,6 +359,19 @@ MonoBehaviour:
   - {fileID: 3642792238051749156}
   - {fileID: 2307099136455670090}
   timedDestroyer: {fileID: 3872924443984927461}
+--- !u!65 &193584535103125001
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642792238051749167}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1.6666431}
+  m_Center: {x: 0, y: 0, z: -0.10136685}
 --- !u!1001 &8079213361733700103
 PrefabInstance:
   m_ObjectHideFlags: 0

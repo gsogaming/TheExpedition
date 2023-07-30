@@ -182,7 +182,7 @@ public class AmmoTracker : MonoBehaviour
         if (_instance != null && gun != null)
         {
             int amountToReload = Mathf.Clamp(_instance[gun.ammunitionID], 0, gun.magazineSize);
-            gun.roundsLoaded = amountToReload;
+            gun.roundsLoaded = amountToReload;           
             return amountToReload;
         }
         GameManager.UpdateUIElements();

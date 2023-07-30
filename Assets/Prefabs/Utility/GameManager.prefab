@@ -50,6 +50,7 @@ MonoBehaviour:
   gameIsWinnable: 1
   gameVictoryPageIndex: 1
   victoryEffect: {fileID: 0}
+  resetPlayerPrefsSettings: 0
   gameOverPageIndex: 2
   gameOverEffect: {fileID: 0}
   gameIsOver: 0
