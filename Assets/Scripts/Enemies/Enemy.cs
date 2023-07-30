@@ -119,6 +119,7 @@ public class Enemy : MonoBehaviour
         {
             hasLineOfSight = HasLineOfSight();
         }
+        
 
         if (canMove && enemyRigidbody != null && attackMove && hasLineOfSight)
         {
@@ -147,8 +148,9 @@ public class Enemy : MonoBehaviour
                 enemyRigidbody.angularVelocity = Vector3.zero;
             }
 
-            isMoving = false;
+            isMoving = false;            
             isIdle = true;
+            
         }
     }
 

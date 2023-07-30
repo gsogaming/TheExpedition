@@ -167,6 +167,9 @@ public class GroundEnemy : Enemy
         else
         {
             isIdle = true;
+            isMoving = false;
+            isAttacking = false;
+            
         }
         return false;
     }
