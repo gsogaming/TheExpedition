@@ -182,6 +182,44 @@ public class InputManager : MonoBehaviour
         pausePressed = false;
     }
 
+    [Header("Reload Input")]
+    [Tooltip("Whether or not the reload button was pressed this frame")]
+    public bool reloadPressed;
+    [Tooltip("Whether or not the reload button is being held down")]
+    public bool reloadHeld;
+
+    /// <summary>
+    /// Description:
+    /// Reads and stores the reload input
+    /// Input: 
+    /// CallbackContext callbackContext
+    /// Return:
+    /// void (no return)
+    /// </summary>
+    /// <param name="callbackContext">The context of the reload input</param>
+    public void ReadReloadInput(InputAction.CallbackContext context)
+    {
+        reloadPressed = !context.canceled;
+        reloadHeld = !context.canceled;
+        StartCoroutine("ResetReloadStart");
+    }
+
+    /// <summary>
+    /// Description
+    /// Coroutine that resets the reload pressed variable after one frame
+    /// Input: 
+    /// none
+    /// Return: 
+    /// IEnumerator
+    /// </summary>
+    /// <returns>IEnumerator: Allows this to function as a coroutine</returns>
+    private IEnumerator ResetReloadStart()
+    {
+        yield return new WaitForEndOfFrame();
+        reloadPressed = false;
+    }
+
+
     [Header("Cycle weapon input")]
     [Tooltip("The input from the axis that cycles weapons")]
     public float cycleWeaponInput;

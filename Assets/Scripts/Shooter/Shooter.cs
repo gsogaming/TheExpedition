@@ -98,6 +98,8 @@ public class Shooter : MonoBehaviour
             {
                 GoToPreviousWeapon();
             }
+
+            
         }
     }
 

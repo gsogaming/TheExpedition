@@ -11,7 +11,8 @@
                     "id": "bab7d29b-dce4-4f21-a709-5a695b25ce84",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Fire",
@@ -19,7 +20,8 @@
                     "id": "d0c4e593-f84b-4aa1-9b4b-aef8ec21d655",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "CycleWeapon",
@@ -27,7 +29,8 @@
                     "id": "638c61c4-a9fb-4c35-b32f-c852bd5d8ac3",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "NextWeapon",
@@ -35,7 +38,8 @@
                     "id": "f901815c-c88a-4d58-9350-242758ec8b2a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "PreviousWeapon",
@@ -43,7 +47,8 @@
                     "id": "fd1a5887-4ce8-47da-9757-56fe957038f7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -51,7 +56,8 @@
                     "id": "d4d24be6-1751-41f4-ad6d-7ecccd551185",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Look",
@@ -59,7 +65,8 @@
                     "id": "21fbc8e9-d252-40e7-b73a-d484f83560ff",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Pause",
@@ -67,7 +74,17 @@
                     "id": "6997b4dd-38bb-47d1-8f11-c813b060151a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "7554b6a5-227c-4592-9fec-4ae6d106087e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -277,6 +294,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4676c1d-86b6-4a58-90a4-fd882cf8f983",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

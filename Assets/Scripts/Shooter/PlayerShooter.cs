@@ -98,6 +98,11 @@ public class PlayerShooter : MonoBehaviour
             {
                 GoToPreviousWeapon();
             }
+
+            if (inputManager.reloadPressed)
+            {
+                StartCoroutine(guns[equippedGunIndex].Reload());
+            }
         }
     }
 

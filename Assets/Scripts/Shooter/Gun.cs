@@ -307,7 +307,7 @@ public class Gun : MonoBehaviour
     /// Outputs: IEnumerator
     /// </summary>
     /// <returns>Coroutine</returns>
-    private IEnumerator Reload()
+    public IEnumerator Reload()
     {
         isReloading = true;
         ableToFireAgainTime = Time.time + reloadTime;
