@@ -313,6 +313,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819631489930134605}
     m_Modifications:
+    - target: {fileID: 238443350208526556, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
+      propertyPath: available
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3045180333889158368, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
       propertyPath: m_Name
       value: NewShooter
@@ -359,6 +363,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3045180333889158369, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492644058708480277, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
+      propertyPath: available
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492644058708480277, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
+      propertyPath: magazineSize
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492644058708480279, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939550516835589399, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
+      propertyPath: available
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
