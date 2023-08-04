@@ -51,13 +51,14 @@ public class CinematicSceneController : MonoBehaviour
 
     private void Awake()
     {
-        textWriterSingle = TextWriter.AddWriter_Static(dateText, dateText.text, writeSpeed, true, true);
+        
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        textWriterSingle = TextWriter.AddWriter_Static(dateText, dateText.text, writeSpeed, true, true);
         shipsOriginalPos = spaceShip.transform.position;
         planetOriginalPos = planet.transform.position;
         Debug.Log(shipsOriginalPos);
