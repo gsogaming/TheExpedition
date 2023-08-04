@@ -49,7 +49,7 @@ public class CinematicCameraController : MonoBehaviour
 
         if (spaceShip.position.z <= 24)
         {
-            mainCamera.transform.LookAt(spaceShip);
+            //mainCamera.transform.LookAt(spaceShip);
         }
 
     }

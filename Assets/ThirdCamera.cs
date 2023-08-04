@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CinematicSceneController : MonoBehaviour
+public class ThirdCamera : MonoBehaviour
 {
-    [SerializeField] Camera mainCamera, spaceShipCamera;
-    [SerializeField] GameObject spaceShip;
-
+    public Transform spaceShip;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +14,6 @@ public class CinematicSceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(spaceShip);
     }
 }
