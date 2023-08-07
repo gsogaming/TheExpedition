@@ -219,6 +219,34 @@ public class InputManager : MonoBehaviour
         reloadPressed = false;
     }
 
+    [Header("Interact Input")]
+    [Tooltip("Whether or not the interact button was pressed this frame")]
+    public bool interactPressed;
+    [Tooltip("Whether or not the interact button is being held down")]
+    public bool InteractHeld;
+
+    /// <summary>
+    /// Description:
+    /// Reads and stores the interact input
+    /// Input: 
+    /// CallbackContext callbackContext
+    /// Return:
+    /// void (no return)
+    /// </summary>
+    /// <param name="callbackContext">The context of the interact input</param>
+    public void ReadInteractInput(InputAction.CallbackContext context)
+    {
+        interactPressed = !context.canceled;
+        InteractHeld = !context.canceled;
+        StartCoroutine("ResetInteractStart");
+    }
+
+    private IEnumerator ResetInteractStart()
+    {
+        yield return new WaitForEndOfFrame();
+        interactPressed = false;
+    }
+
 
     [Header("Cycle weapon input")]
     [Tooltip("The input from the axis that cycles weapons")]
