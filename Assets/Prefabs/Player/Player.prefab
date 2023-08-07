@@ -232,9 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf83100f3366f949803990b67dfaea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  lookSpeed: 40
-  jumpPower: 8
+  moveSpeed: 10
+  lookSpeed: 30
+  jumpPower: 5
   gravity: 9.81
   jumpTimeLeniency: 0.1
   playerShooter: {fileID: 3857541320006664516}
@@ -375,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492644058708480279, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6939550516835589399, guid: 5b2896e035a2d204fab0a2db8357d311, type: 3}
       propertyPath: available
