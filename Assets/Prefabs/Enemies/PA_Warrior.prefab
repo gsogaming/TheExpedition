@@ -49,14 +49,22 @@ MonoBehaviour:
   maxDistanceToAim: 1000
   alwaysShootAtTarget: 1
   enemy: {fileID: 0}
+  damageAmount: 1
   projectileGameObject: {fileID: 35727632701236798, guid: 843692648eedf304b8bf50030f10d815, type: 3}
   childProjectileToFireLocation: 0
   fireEffect: {fileID: 0}
   fireLocationTransform: {fileID: 782501487301643686}
+  muzzleEffectLocation: {fileID: 0}
   fireDelay: 0.02
   fireType: 0
+  isReloading: 0
+  maximumFireDistance: 100
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 0
   maximumToFire: 1
   maximumSpreadDegree: 0
+  bulletVfxOnHit: {fileID: 0}
   available: 1
   gunAnimator: {fileID: 0}
   shootTriggerName: Shoot
@@ -407,8 +415,8 @@ MonoBehaviour:
   currentLives: 3
   maximumLives: 5
   respawnWaitTime: 3
-  deathEffect: {fileID: 0}
-  hitEffect: {fileID: 0}
+  deathEffect: {fileID: 1515603650488286217, guid: b1d61b018291e5043b0be5ee26c12b18, type: 3}
+  hitEffect: {fileID: 1986892457192645033, guid: b4b5f92d032abe64b84d7639d84610e8, type: 3}
   ragdollHandler: {fileID: 0}
   eventsOnDeath:
     m_PersistentCalls:
