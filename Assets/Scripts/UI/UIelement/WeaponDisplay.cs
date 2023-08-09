@@ -17,6 +17,7 @@ public class WeaponDisplay : UIelement
     public RawImage gunDisplayImage;
     [Tooltip("The UI Image to display the ammo silouette to")]
     public RawImage ammoPackDisplayImage;
+   
 
     /// <summary>
     /// Description:
@@ -33,7 +34,7 @@ public class WeaponDisplay : UIelement
         Gun currentGun = playerShooter.guns[playerShooter.equippedGunIndex];
 
 
-        if (totalAmmoText != null && currentAmmoText != null && playerShooter.guns[playerShooter.equippedGunIndex].useAmmo) 
+        if (totalAmmoText != null && currentAmmoText != null && playerShooter.guns[playerShooter.equippedGunIndex].useAmmo && playerShooter.canShowUI) 
         {
             
             currentAmmoText.text = currentGun.roundsLoaded.ToString();
@@ -46,12 +47,15 @@ public class WeaponDisplay : UIelement
         }
         else
         {
+            currentAmmoText.text = "";
             totalAmmoText.text = "";
             ammoPackDisplayImage.color = new Color(0,0,0,0);
         }
-        if (playerShooter.guns[playerShooter.equippedGunIndex].weaponImage != null && gunDisplayImage != null)
+        if (playerShooter.guns[playerShooter.equippedGunIndex].weaponImage != null && gunDisplayImage != null && playerShooter.canShowUI)
         {
+            
             gunDisplayImage.texture = playerShooter.guns[playerShooter.equippedGunIndex].weaponImage.texture;
+            gunDisplayImage.color = new Color(225, 225, 225, 225);
         }
     }
 

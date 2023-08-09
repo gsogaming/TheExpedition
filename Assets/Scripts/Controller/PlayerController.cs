@@ -29,10 +29,15 @@ public class PlayerController : MonoBehaviour
     public List<GameObject> disableWhileDead;
 
     bool doubleJumpAvailable = false;
+    bool bossHpBarActivated = false;
 
     //The Character controller component on the player
     private CharacterController controller;
     private InputManager inputManager;
+
+    public GameObject boss;
+    public GameObject bossHealthBar;
+    public float bossHpBarActivationDistance;
 
     /// <summary>
     /// Description:
@@ -87,11 +92,22 @@ public class PlayerController : MonoBehaviour
             {
                 inGameObject.SetActive(true);
             }
-            
+
         }
 
         ProcessMovement();
         ProcessRotation();
+        BossHpBarCheck();
+    }
+
+    private void BossHpBarCheck()
+    {        
+        float distanceToBoss = Vector3.Distance(boss.transform.position, transform.position);
+        if (distanceToBoss <= bossHpBarActivationDistance && bossHealthBar != null && !bossHpBarActivated)
+        {
+            bossHealthBar.SetActive(true);
+            bossHpBarActivated = true;
+        }
     }
 
     Vector3 moveDirection;

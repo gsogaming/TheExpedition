@@ -18,6 +18,7 @@ public class PlayerShooter : MonoBehaviour
     public InputManager inputManager;
     [Tooltip("Whether or not this shooter is controlled by the player")]
     public bool isPlayerControlled = false;
+    public bool canShowUI = false;
 
     /// <summary>
     /// Description:
@@ -116,7 +117,7 @@ public class PlayerShooter : MonoBehaviour
     /// </summary>
     public void GoToNextWeapon()
     {
-        List<Gun> availableGuns = guns.Where(item => item.available == true).ToList();
+        List<Gun> availableGuns = guns.Where(item => item.available == true).ToList();        
         int maximumAvailableGunIndex = availableGuns.Count - 1;
         int equippedAvailableGunIndex = availableGuns.IndexOf(guns[equippedGunIndex]);
 
@@ -207,10 +208,10 @@ public class PlayerShooter : MonoBehaviour
             {
                 guns[i].gameObject.SetActive(false);
                 guns[i].isReloading = false;
-                guns[i].gunAnimator.StopPlayback();
-                
+                guns[i].gunAnimator.StopPlayback();                
             }
         }
+        canShowUI = true;
         GameManager.UpdateUIElements();
     }
 
@@ -226,6 +227,10 @@ public class PlayerShooter : MonoBehaviour
     {
         foreach(Gun gun in guns)
         {
+            if (gun.available)
+            {
+                canShowUI = true;
+            }
             if (gun != null)
             {
                 if (gun.available && guns[equippedGunIndex] == gun)
@@ -235,7 +240,9 @@ public class PlayerShooter : MonoBehaviour
                 else
                 {
                     gun.gameObject.SetActive(false);
+                    
                 }
+                
             }
         }
     }

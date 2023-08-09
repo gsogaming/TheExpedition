@@ -28,6 +28,9 @@ public class EnemySpawner : MonoBehaviour
     public bool showSpawnArea = true;
     // The time at which the next enemy will be spawned
     private float nextSpawnTime = Mathf.NegativeInfinity;
+    [Tooltip("The distance when player is close enough")]
+    [SerializeField] float spawnDistanceToPlayer;
+    [SerializeField] GameObject player;
 
     /// <summary>
     /// Description:
@@ -52,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
     /// Return: 
     /// void (no return)
     /// </summary>
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (showSpawnArea)
         {
@@ -60,6 +63,8 @@ public class EnemySpawner : MonoBehaviour
             Gizmos.DrawWireCube(transform.position, spawnAreaSize);
             Gizmos.color = new Color(1, 0, 0, 0.25f);
             Gizmos.DrawCube(transform.position, spawnAreaSize);
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, spawnDistanceToPlayer);
         }
     }
 
@@ -73,7 +78,9 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     private void TestSpawn()
     {
-        if (Time.timeSinceLevelLoad > nextSpawnTime)
+        float playerDistance = Vector3.Distance(this.gameObject.transform.position, player.transform.position);        
+
+        if (Time.timeSinceLevelLoad > nextSpawnTime && playerDistance <= spawnDistanceToPlayer)
         {
             Spawn();
         }
@@ -125,4 +132,7 @@ public class EnemySpawner : MonoBehaviour
         result.z = transform.position.z + Random.Range(-spawnAreaSize.z * 0.5f, spawnAreaSize.z * 0.5f);
         return result;
     }
+
+
+    
 }

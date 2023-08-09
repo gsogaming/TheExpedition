@@ -60,6 +60,9 @@ MonoBehaviour:
   eventsOnDeath:
     m_PersistentCalls:
       m_Calls: []
+  eventsOnRespawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &576952166799271738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +70,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4481950420075888626}
     m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -80,6 +87,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -90,14 +101,6 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -125,8 +128,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
+--- !u!1 &8872183514107821619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
+  m_PrefabInstance: {fileID: 576952166799271738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5583067428150037536 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 89b68170c17ff4a48a1a73cf5313434f, type: 3}
   m_PrefabInstance: {fileID: 576952166799271738}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7844307199663237336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872183514107821619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd127b36b1c82f4da6b98d59c6f16f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamId: -1
+  defaultHealth: 1
+  maximumHealth: 1
+  currentHealth: 1
+  invincibilityTime: 3
+  isAlwaysInvincible: 1
+  useLives: 0
+  currentLives: 3
+  maximumLives: 5
+  respawnWaitTime: 3
+  deathEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+  ragdollHandler: {fileID: 0}
+  eventsOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  eventsOnRespawn:
+    m_PersistentCalls:
+      m_Calls: []

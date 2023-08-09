@@ -16,8 +16,12 @@ public class HealthDisplay : UIelement
     [Tooltip("The prefab to use to display the number")]
     public GameObject numberDisplay = null;
     [Tooltip("The maximum number of images to display before switching to just a number")]
-    public int maximumNumberToDisplay = 3;
+    public int maximumNumberToDisplay = 3;    
+    public GameObject healthBar;
 
+
+
+   
     private void Start()
     {
         if (targetHealth == null && (GameManager.instance != null && GameManager.instance.player != null))
@@ -48,6 +52,18 @@ public class HealthDisplay : UIelement
         if (targetHealth != null)
         {
             SetChildImageNumber(targetHealth.currentHealth);
+        }
+    }
+
+    private void Update()
+    {
+        if (targetHealth != null)
+        {
+            SetChildImageNumber(targetHealth.currentHealth);
+        }
+        if (targetHealth.currentHealth <= 0)
+        {
+            healthBar.SetActive(false);            
         }
     }
 
